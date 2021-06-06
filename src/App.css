@@ -1,38 +1,120 @@
-.App {
-  text-align: center;
+.PageTitle{
+  font-weight: bold;
+  font-size:60px;
+  color:#3c5c82
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.PageSubTitle{
+  font-family: "Verdana";
+  font-weight: bold;
+  font-size:35px;
+  color:#3c5c82;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.PageSubSubTitle{
+ 
+  font-family: "Verdana";
+  font-size:25px;
+  color:#3c5c82;
 }
+.container{
+  margin: 80px;
+  /* border: 2px solid black; */
+  padding:15px;
+}
+.stocksContent{
+ 
+  /* height: 600px; */
+  margin-top: 30px;
+  margin-left:30px;
+  /* border: 2px solid black; */
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-around;
+  padding: 10px;
+}
+.addStocks{
+  /* height: 300px; */
+  padding: 10px;
+  /* border: 2px solid black; */
+  width:30%;
+  display:flex;
+  align-items: center;
+  justify-content:left;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+}
+.stockList{
+  
+  padding: 10px;
+  /* border: 2px solid black; */
+  width:40%;
+}
+.Stocks{
+  width:100%;
+ 
+}
+#AddStocks{
+  
+  box-sizing: border-box;
+  margin-top:20px;
+  padding:15px;
+  width:100%;
+  background-color: #F5F5F5;
+  box-shadow:  0px 0px 5px 3px rgb(172, 172, 172);
+  /* height:100px; */
+}
+#AddStocksList{
+  font-size:30px;
+  height: 600px;
+  padding: 60px;
+  box-sizing: border-box;
+  background-color: #F5F5F5;
+  margin-top:20px;
+  width:100%;
+  border-radius: 10px;
+  box-shadow:  0px 0px 5px 5px rgb(172, 172, 172);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.FormGroup{
+  font-size:20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.Input{
+  margin-left: 10px;
+  /* border-radius: 5px; */
+}
+.SubmitBtn{
+  padding: 7px 28px;
+  font-size:15px;
+  background-color: #8FC4DB;
+  border: 0px;
+} 
+.stockView{
+  width:100%;
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size:30px;
+}
+.CheckBtn{
+  /* color:blue; */
+  padding:4px 25px;
+  background-color:#B6C3DD;
+  border:0px;
+}
+.CheckBtn:hover{
+  /* background-color:#fff; */
+  border:2px solid black;
+}
+.ListHeaders{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
