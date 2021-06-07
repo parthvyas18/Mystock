@@ -11,9 +11,9 @@ const Display = () =>{
                      
                         <div className='PageSubSubTitle'><u>Current Status</u></div>
                     </div>
-                    <View CName='Company 1'/>
-                    <View CName='Company 2'/>
-                    <View CName='Company 3' />
+                    <View CName='Company'/>
+                    <View CName='Company'/>
+                    <View CName='Company' />
             </div>
         </div>
     );

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import '../App.css'
 const Add = () => {
     return (
@@ -7,17 +7,17 @@ const Add = () => {
             <span className="PageSubTitle">Add New Stock</span>
             <hr></hr>
             <div id="AddStocks">
-                    <Form>
-                        <FormGroup className="FormGroup">
-                            <Label for="CompanyName">Company Name</Label>
-                            <Input className="Input" type="text" id="CompanyName" />
-                        </FormGroup>
-                        <FormGroup className="FormGroup">
-                            <Label for="BuyPrice">Stock Buy Price</Label>
-                            <Input className="Input" type="text" id="BuyPrice" />
-                        </FormGroup>
-                        <Button className="SubmitBtn">Add</Button>
-                    </Form>
+                    <form>
+                        <div className="FormGroup form-group">
+                            <label for="CompanyName">Company Name</label>
+                            <input className="Input" type="text" id="CompanyName" />
+                        </div>
+                        <div className="FormGroup form-group">
+                            <label for="BuyPrice">Stock Buy Price</label>
+                            <input className="Input" type="text" id="BuyPrice" />
+                        </div>
+                        <button className="Addbtn">Add</button>
+                    </form>
             </div>
         </div>
     );

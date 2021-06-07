@@ -1,3 +1,18 @@
+body{
+  height:4000px;
+  background-color:black;
+  margin:10px;
+}
+.hr {
+  margin-top: 40px;
+  width:100%;
+  border: 1px solid black;
+}
+.hrB{
+  margin-bottom: 40px;
+  border: 1px solid black;
+  width:100%;
+}
 .PageTitle{
   font-weight: bold;
   font-size:60px;
@@ -12,13 +27,12 @@
 .PageSubSubTitle{
  
   font-family: "Verdana";
-  font-size:25px;
+  font-size:80%;
   color:#3c5c82;
 }
 .container{
-  margin: 80px;
-  /* border: 2px solid black; */
-  padding:15px;
+  position: relative;
+  top:80px;
 }
 .stocksContent{
  
@@ -33,9 +47,7 @@
   padding: 10px;
 }
 .addStocks{
-  /* height: 300px; */
   padding: 10px;
-  /* border: 2px solid black; */
   width:30%;
   display:flex;
   align-items: center;
@@ -45,7 +57,6 @@
 .stockList{
   
   padding: 10px;
-  /* border: 2px solid black; */
   width:40%;
 }
 .Stocks{
@@ -60,12 +71,11 @@
   width:100%;
   background-color: #F5F5F5;
   box-shadow:  0px 0px 5px 3px rgb(172, 172, 172);
-  /* height:100px; */
 }
 #AddStocksList{
   font-size:30px;
   height: 600px;
-  padding: 60px;
+  padding: 10%;
   box-sizing: border-box;
   background-color: #F5F5F5;
   margin-top:20px;
@@ -76,21 +86,26 @@
   flex-direction: column;
 }
 .FormGroup{
-  font-size:20px;
-  margin-top: 30px;
-  margin-bottom: 30px;
+ 
+  display:flex;
+  font-size:15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .Input{
+
+  height:25px;
+  
   margin-left: 10px;
   /* border-radius: 5px; */
 }
-.SubmitBtn{
+.Addbtn {
   padding: 7px 28px;
   font-size:15px;
   background-color: #8FC4DB;
   border: 0px;
-} 
+}
 .stockView{
   width:100%;
   display:flex;
@@ -100,9 +115,9 @@
   margin-bottom: 10px;
   font-size:30px;
 }
-.CheckBtn{
-  /* color:blue; */
-  padding:4px 25px;
+.Checkibtn{
+  padding:1% 6%;
+  font-size: 0.9em;
   background-color:#B6C3DD;
   border:0px;
 }
@@ -110,11 +125,104 @@
   /* background-color:#fff; */
   border:2px solid black;
 }
+.Company_Name{
+  font-size:0.9em;
+}
 .ListHeaders{
   display:flex;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 20px;
-
 }
 
+.navbar{
+  z-index: 999;
+  width: 100%;
+  background-color: #F5F5F5;
+  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 12%), inset 0 -1px 0 0 #dadce0;
+}
+.navbar-brand{
+  margin-left: 1.2rem;
+  
+}
+.nav-logo{
+  height: 4rem;
+  width: 16rem;
+}
+.navbar-toggler{
+  margin-right: 1rem;
+}
+.navbar-collapse{
+  color: aliceblue;
+  margin-left: 1.2rem;
+  text-align: center;
+}
+#navbarSupportedContent{
+  margin-right: 3rem;
+}
+.nav-item{
+  padding-left: 1rem;
+}
+.nav-link{
+font-size: 1.3rem;
+font-weight: 600;
+}
+.home-container{
+/* position: absolute; */
+height: 100vh;
+
+}
+.home-img{
+opacity: 0.8;
+width: 100%;
+height: 100%;
+}
+.home-con0{
+width: 50%;
+height: 100%;
+position: absolute;
+display: flex;
+top: 0px;
+background-color: transparent;
+background: rgba(0, 0, 0, 0.3);
+}
+.home-con1{
+width: 90%;
+position: absolute;
+display: flex;
+text-align: left;
+top: 25vh;
+margin-left: 5vw;
+color: aliceblue;
+padding-left: 10px;
+border-left: 7px solid #fff;
+}
+.name{
+font-size: 5.5vw;
+}
+.after-name{
+font-size: 1.7em;
+}
+/* .Container{
+  padding:10px;
+  margin-right: 15px;
+  margin-left:15px;
+  border: 2px solid black;
+  margin-top:20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+} */
+.Image{
+  width:20%;
+}
+.Descriptions{
+  width: 75%;
+}
+.LinkColor {
+  color:black;
+}
+.fa{
+  margin-right: 5px;
+}
