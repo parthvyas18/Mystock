@@ -1,7 +1,7 @@
 import React from 'react'
-import '../App.css'
 import Add from './addStock'
 import Display from './displayStockList'
+
 const MyStocks = () => {
     return (
         <div className="container">
