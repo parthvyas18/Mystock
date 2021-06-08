@@ -1,7 +1,6 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2'
 import 'font-awesome/css/font-awesome.min.css';
-import '../css/work.css'
 
 const Chart = ({Dates,Data}) => {
     return (

@@ -4,7 +4,6 @@ import Home from './components/home'
 import MyStocks from './components/mystocks'
 import NavBar from './components/Navbar'
 import { Route } from 'react-router-dom'
-
 import './App.css';
 
 function App() {
@@ -14,12 +13,10 @@ function App() {
 
       <NavBar />
       <Route path="/" exact component={Home} />
-      <Route path="/mystocks" exact component={MyStocks} />
-      <Route path="/work" exact component={Work} />
-      <Route path="/home" exact component={Home} />
-      <Route path="/aboutus" exact component={About} />
-
-
+      <Route path="/MyStocks" exact component={MyStocks} />
+      <Route path="/Work" exact component={Work} />
+      <Route path="/Home" exact component={Home} />
+      <Route path="/AboutUs" exact component={About} />
     </div>
   );
 }

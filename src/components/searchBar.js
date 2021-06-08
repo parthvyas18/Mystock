@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import 'font-awesome/css/font-awesome.min.css';
-import '../css/work.css'
+import '../styles/work.css'
 
 const SearchBar = ({triger}) => {
     const [Search, setSearch] = useState("");

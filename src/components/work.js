@@ -1,15 +1,16 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import SearchBar from './searchBar'
 import TopViewed from './TopViewed'
+import Footer from './Footer'
 import Chart from './Chart'
-import '../css/work.css'
-const Work = () =>{
-    const [Dates,setDates] =useState([]);
-    const [Data,setData]=useState([]);
-    const TrigerEvent = (Search) =>{
+import '../styles/work.css'
+const Work = () => {
+    const [Dates, setDates] = useState([]);
+    const [Data, setData] = useState([]);
+    const TrigerEvent = (Search) => {
         const KeyValues = [];
         const DataValues = [];
-        
+
         const CallApi = () => {
             console.log(Search);
             fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${Search}&outputsize=compact&apikey=R6DG5NS8ZUUQXIV7`)
@@ -27,12 +28,15 @@ const Work = () =>{
         }
         CallApi();
     };
-    return(
-        <div className='container'>
-         <SearchBar triger={TrigerEvent}/>
-         <Chart Dates={Dates} Data={Data}/>
-         <TopViewed />
-        </div>
+    return (
+        <>
+            <div className='container'>
+                <SearchBar triger={TrigerEvent} />
+                <Chart Dates={Dates} Data={Data} />
+                <TopViewed />
+            </div>
+            <Footer />
+        </>
     );
 }
 export default Work;

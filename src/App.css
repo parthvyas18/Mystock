@@ -1,5 +1,5 @@
 body {
-  height:4000px;
+  height: 4000px;
   /* background-color: black; */
   margin:10px;
 }
@@ -19,20 +19,19 @@ body {
   color:#3c5c82
 }
 .PageSubTitle{
-  font-family: "Verdana";
+  font-family:Arial, Helvetica, sans-serif;
   font-weight: bold;
-  font-size:35px;
   color:#3c5c82;
 }
 .PageSubSubTitle{
  
-  font-family: "Verdana";
-  font-size:80%;
+  font-family:Arial, Helvetica, sans-serif;
   color:#3c5c82;
 }
 .container{
   position: relative;
   top:80px;
+  margin-bottom: 200px;
 }
 
 
@@ -126,4 +125,7 @@ font-size: 1.7em;
 }
 .fa{
   margin-right: 5px;
+}
+.List{
+  margin:5px;
 }
