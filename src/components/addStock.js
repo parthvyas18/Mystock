@@ -1,5 +1,5 @@
 import React from 'react'
-const Add = () => {
+const AddStock = () => {
     return (
         <div class="Stocks">
             <span className="PageSubTitle">Add New Stock</span>
@@ -20,4 +20,4 @@ const Add = () => {
         </div>
     );
 }
-export default Add;
+export default AddStock;

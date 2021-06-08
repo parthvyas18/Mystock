@@ -1,5 +1,5 @@
 import React from 'react';
-const View= (props)=>{
+const ViewMyStock= (props)=>{
     return(
         <div className="stockView">
             <span className="Company_Name">{props.CName}</span>
@@ -7,4 +7,4 @@ const View= (props)=>{
         </div>
     );
 }
-export default View;
+export default ViewMyStock;

@@ -1,6 +1,6 @@
 import React from 'react'
-import View from './ViewMyStock'
-const Display = () =>{
+import ViewMyStock from './ViewMyStock'
+const DisplayStockList = () =>{
     return(
         <div className="Stocks">
             <span className="PageSubTitle">Your Listed Stocks</span>
@@ -11,11 +11,11 @@ const Display = () =>{
                      
                         <div className='PageSubSubTitle'><u>Current Status</u></div>
                     </div>
-                    <View CName='Company'/>
-                    <View CName='Company'/>
-                    <View CName='Company' />
+                    <ViewMyStock CName='Company'/>
+                    <ViewMyStock CName='Company'/>
+                    <ViewMyStock CName='Company' />
             </div>
         </div>
     );
 }
-export default Display;
+export default DisplayStockList;

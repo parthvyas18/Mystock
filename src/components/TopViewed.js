@@ -1,5 +1,5 @@
 import React from 'react';
-import View from './ViewMyStock'
+import ViewMyStock from './ViewMyStock'
 const TopViewed = () => {
     return (
         <div className='container'>
@@ -7,9 +7,9 @@ const TopViewed = () => {
 
                 <div className='viewed justify-content-around col-md-5 col-12'>
                     <h1>Mostly viewed Stocks</h1>
-                    <View CName="AMZN" />
-                    <View CName="IBM" />
-                    <View CName="MSFT" />
+                    <ViewMyStock CName="AMZN" />
+                    <ViewMyStock CName="IBM" />
+                    <ViewMyStock CName="MSFT" />
                 </div>
             </div>
         </div>

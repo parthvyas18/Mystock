@@ -1,7 +1,7 @@
 import React from 'react'
-import Add from './addStock'
-import Display from './displayStockList'
-
+import AddStock from './addStock'
+import DisplayStockList from './displayStockList'
+import '../css/mystocks.css'
 const MyStocks = () => {
     return (
         <div className="container">
@@ -12,15 +12,13 @@ const MyStocks = () => {
 
             <div className="row stocksContent">
                 <div className=" col-md-4  col-12 addStocks">
-                    <Add />
+                    <AddStock />
                 </div>
                 <div className=" col-md-5  col-12 stockList">
-                    <Display />
+                    <DisplayStockList />
                 </div>
             </div>
         </div>
-
-
     );
 }
 export default MyStocks;
