@@ -6,8 +6,8 @@ const Chart = ({Dates,Data}) => {
     return (
 
         <div className="row">
-                <hr className='hrB col-12' />
-                <div className="Chart col-12">
+                {/* <hr className='hrB col-12' /> */}
+                <div className="Chart col-lg-12 col-12">
                     <Line
                         className="Graph"
                         data={{

@@ -12,14 +12,15 @@ const MyStocks = () => {
                     <hr></hr>
                 </div>
                 <div className="row stocksContent d-flex justify-content-around align-items-center">
-                    <div className=" col-md-3  col-12   d-flex justify-content-between align-items-center addStocks">
+                    <div className=" col-lg-3  col-12   d-flex justify-content-between align-items-center addStocks">
                         <AddStock />
                     </div>
-                    <div className=" col-md-5 col-12 stockList">
+                    <div className=" col-lg-5 col-12 stockList">
                         <DisplayStockList />
                     </div>
                 </div>
-
+                <div className='row mt-5'>
+                </div>
             </div>
             <Footer />
         </>

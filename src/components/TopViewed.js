@@ -1,15 +1,23 @@
 import React from 'react';
 import ViewMyStock from './ViewMyStock'
+
 const TopViewed = () => {
     return (
         <div className='container'>
             <div className='row justify-content-center'>
 
-                <div className='viewed justify-content-around col-md-5 col-12'>
-                    <h1>Mostly viewed Stocks</h1>
-                    <ViewMyStock CName="AMZN" />
-                    <ViewMyStock CName="IBM" />
-                    <ViewMyStock CName="MSFT" />
+                <div className='row d-flex justify-content-center'>
+                    <div className='viewed  col-md-6 col-12'>
+                        <h2>Mostly viewed Stocks</h2>
+                        <hr />
+                        <ViewMyStock CName="AMZN" />
+                        <ViewMyStock CName="GOOGL" />
+                        <ViewMyStock CName="MSFT" />
+                        <ViewMyStock CName="AAPL" />
+                        <ViewMyStock CName="TSLA" />
+                        <ViewMyStock CName="FB" />
+                        <ViewMyStock CName="PYPL" />
+                    </div>
                 </div>
             </div>
         </div>

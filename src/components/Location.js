@@ -1,5 +1,6 @@
 import React from 'react'
 import map_img from "../images/map.jpg";
+import '../styles/Location.css'
 function Location() {
     return (
         <>
@@ -28,7 +29,7 @@ function Location() {
                     <h3 id="map">Map of our Location</h3>
                     <div className="map-img">
                         <a href="https://maps.app.goo.gl/4nP3xamoiCAJ5mT76" target="_blank">
-                            {/* <img src={map_img} alt="Click to get location" className="map_img" /> */}
+                            <img src={map_img} alt="Click to get location" className="map_img" />
                         </a>
                     </div>
                 </div>

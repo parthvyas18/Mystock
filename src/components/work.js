@@ -32,10 +32,14 @@ const Work = () => {
         <>
             <div className='container'>
                 <SearchBar triger={TrigerEvent} />
-                <Chart Dates={Dates} Data={Data} />
+                <div className='row'>
+                    <div className='offset-lg-1 col-lg-10 col-12'>
+                        <Chart Dates={Dates} Data={Data} />
+                    </div>
+                </div>
                 <TopViewed />
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </>
     );
 }
