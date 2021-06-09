@@ -27,6 +27,13 @@ function Navbar() {
                         <li className="nav-item">
                             <NavLink className="nav-link" style={{ color: 'black' }} to="/AboutUs"><span className="fa fa-info fa-lg"></span> Aboutus</NavLink>
                         </li>
+                        
+                        <li className="nav-item">
+                            <NavLink className="nav-link " style={{ color: 'black' }} data-toggle="modal" data-target="#Register" to="/Register"><span className="fa fa-user-plus"></span>  Register</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" style={{ color: 'black' }} data-toggle="modal" data-target="#Login" to="/Login"><span className="fa fa-sign-in"></span>Login</NavLink>
+                        </li>
                         {/* <li className="nav-item">
                             <NavLink className="nav-link" style={{ color: 'black' }} to="/Login"><span className="fa fa-sign-in fa-lg"></span> Login</NavLink>
                         </li>
