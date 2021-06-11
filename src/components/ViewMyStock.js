@@ -1,10 +1,36 @@
-import React from 'react';
-const ViewMyStock= (props)=>{
-    return(
-        <div className="stockView d-flex  justify-content-between">
-            <span className="Company_Name"><h5>{props.CName}</h5></span>
-            <button className="Checkibtn">Check</button>
-        </div>
+import React,{useEffect} from 'react';
+
+const ViewMyStock = ({ CName, User, ind }) => {
+   
+    const DeleteStock = () => {
+        const ans = window.confirm("Are you sure you want to delete?");
+        console.log(User);
+        console.log(ind);
+        if (ans) {
+            fetch(`/${User}/deleteStock/${ind}`,{
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                 })
+            }).then((res)=> res.text())
+            .then(data =>console.log(data));
+        }
+    }
+    return (
+        <>
+            <div className="stockView row">
+                <span className="Company_Name col-md-7 col-6"><h5>{CName}</h5></span>
+                <div className="col-md-5  col-6 d-flex justify-content-around">
+                    <button className="Checkibtn" >Check</button>
+                    <i class="btn fa fa-trash" aria-hidden="true" onClick={DeleteStock}></i>
+                </div>
+            </div>
+            {/* <div>
+                {RenderChart}
+            </div> */}
+        </>
     );
 }
 export default ViewMyStock;

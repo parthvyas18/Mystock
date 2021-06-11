@@ -1,57 +1,99 @@
 import React, { useState } from 'react';
 import GoogleLogin from 'react-google-login'
+import {NavLink,useHistory} from "react-router-dom";
+import "../styles/Login.css";
 
 
-const Login = (props) => {
+const Login = ({onsubmit}) => {
+
+    const history = useHistory();
+    const [Email,setEmail] = useState();
+    const [Password,setPassword] = useState();
+
+    const sendData = async (e) =>{
+        e.preventDefault();
+        const res = await fetch("/Login",{
+            method:"POST",
+            headers:{
+                "Content-Type" : "application/json"
+            },
+            body : JSON.stringify( {
+                Email,Password
+            })
+        });
+        const data = await res.json();
+
+        if(data.status === 400 || !data)
+        {
+            window.alert("invalid credential");
+            console.log("invalid credential");
+        }
+        else
+        {
+            window.alert("login succesfull");
+            console.log("login succesfull");
+            onsubmit(Email);
+            history.push("/Home");
+        }
+    }
+    // const [modal, setModal] = useState(props.bool);
 
 
-    const [modal, setModal] = useState(props.bool);
-
-
-    const toggle = () => setModal(!modal);
-    const responseGoogle = (response) => {
-        // var profile = response.getBasicProfile();
-        // console.log('Email: ' + profile.getEmail()); 
-        console.log(response);
-        // console.log(response.profileObj);
-    };
+    // const toggle = () => setModal(!modal);
+    // const responseGoogle = (response) => {
+    //     // var profile = response.getBasicProfile();
+    //     // console.log('Email: ' + profile.getEmail()); 
+    //     console.log(response);
+    //     // console.log(response.profileObj);
+    // };
     return (
-        <div>
-            
-            <div class="modal fade" id="Login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className='modal-dialog'>
-                    <div className='modal-content'>
-                        <div className='modal-header' ><h5 class="modal-title" id="exampleModalLabel">Enter your username or password</h5>
-                        </div>
-                        < div className='modal-body'>
-                            <form>
-                                <div className='form-group'>
-                                    <label for="exampleInputEmail1">Email</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter a valid email" />
+        <>
+            <div className="container">
+                <div className="row mt-5">
+                    <div className="col-md-5 mx-auto">
+                        <div className="my-form form">
+                            <div className="mb-3">
+                                <div className="col-md-12 text-center">
+                                    <h1 id="login-tag">Login</h1>
                                 </div>
-                                <div className='form-group'>
-                                    <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password" />
+                            </div>
+                            <form method="POST">
+                                <div className="form-group">
+                                    <label htmlFor="exampleInputEmail1">Email address</label>
+                                    <input type="email" name="Email" className="form-control" id="Email" aria-describedby="emailHelp" 
+                                    value={Email}
+                                    onChange={(e)=> setEmail(e.target.value)}
+                                    placeholder="Enter email" />
                                 </div>
-
-
+                                <div className="form-group">
+                                    <label htmlFor="exampleInputEmail1">Password</label>
+                                    <input type="password" name="Password" id="Password" className="form-control" aria-describedby="emailHelp" 
+                                    value={Password}
+                                    onChange={(e)=> setPassword(e.target.value)}
+                                    placeholder="Enter Password" />
+                                </div>
+                                {/* <div className="form-group">
+                                    <p className="text-center">By signing up you accept our <a href="#">Terms Of Use</a></p>
+                                </div> */}
+                                <div className="col-md-12 text-center mt-3">
+                                    <button type="submit" className=" btn btn-block mybtn btn-primary tx-tfm" onClick={sendData}>Login</button>
+                                </div>
+                                <div className="col-md-12 ">
+                                    <div className="login-or">
+                                        <hr className="hr-or" />
+                                    </div>
+                                </div>
+                                    {/* here you add google login */}
+                                <div className="form-group">
+                                    <p className="text-center ">Don't have account? <NavLink to="/Registration" id="signup" className="text-decoration-none">Create an account</NavLink></p>
+                                </div>
                             </form>
-                        </div>
-                        <div className='modal-footer'>
-                            <GoogleLogin
-                                clientId="129471130344-60ilg7c9366ndmfpdva16eoie1t4d5m0.apps.googleusercontent.com"
-                                buttonText="Login"
-                                onSuccess={responseGoogle}
-                                onFailure={responseGoogle}
-                                cookiePolicy={'single_host_origin'}
-                                onClick={toggle}
-                            />
-                            <button className='btn btn-success' >Login</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            
+        </>
     );
 }
 

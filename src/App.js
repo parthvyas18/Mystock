@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import Work from './components/work'
 import About from './components/aboutus'
 import Home from './components/home'
@@ -8,19 +9,35 @@ import NavBar from './components/Navbar'
 import { Route } from 'react-router-dom'
 import './App.css';
 
-function App() {
+const App= () => {
+ 
+  const [user,setUser]=useState(null);
+  const SetUsr = (usr) => {
+      setUser(usr);
+  };
+  console.log(`user in login is ${user}`)
   return (
     <div>
-
-
       <NavBar />
       <Route path="/" exact component={Home} />
-      <Route path="/MyStocks" exact component={MyStocks} />
-      <Route path="/Work" exact component={Work} />
-      <Route path="/Home" exact component={Home} />
-      <Route path="/AboutUs" exact component={About} />
-      <Route path="/Login" exact component={Login} />
-      <Route path="/Register" exact component={Register} />
+      <Route path="/MyStocks">
+        <MyStocks User={user}/>
+      </Route>
+      <Route path="/Work">
+        <Work />
+      </Route>
+      <Route path="/Home">
+        <Home />
+      </Route>
+      <Route path="/AboutUs">
+        <About />
+      </Route>
+      <Route path="/Login">
+        <Login onsubmit={SetUsr}/>
+      </Route>
+      <Route path="/Register">
+        <Register onsubmit={SetUsr}/>
+      </Route>
     </div>
   );
 }
