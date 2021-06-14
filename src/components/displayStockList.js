@@ -1,28 +1,37 @@
 import React, { useState, useEffect } from 'react'
 import ViewMyStock from './ViewMyStock'
 
-const DisplayStockList = ({ User}) => {
-    const [user, setUser] = useState(User);
+const DisplayStockList = ({ User,Data,TrigerEvent}) => {
+    // const [user, setUser] = useState(User);
     // useEffect(()=> {
     //     console.log('DisplayStockList is rendered')
     // });
-    const [usrstdata, setUsrStData] = useState([]);
-    console.log(usrstdata);
-    useEffect(() => {
-        const Search = async () => {
-            setUser(User);
-            const res = await fetch(`${user}/stocksList`);
-            const data = await res.json();
-            setUsrStData(data);
-        }
-        if(user) {
-            Search();
-        }    
-    }, [user]);
-    const CompanyList = usrstdata.map((CompanyData,index)=>{
+    // const [usrstdata, setUsrStData] = useState([]);
+    // console.log(usrstdata);
+    // useEffect(() => {
+    //     const Search = async () => {
+    //         setUser(User);
+    //         const res = await fetch(`${user}/stocksList`);
+    //         const data = await res.json();
+    //         setUsrStData(data);
+    //     }
+    //     if(user) {
+    //         Search();
+    //     }    
+    // }, [user]);
+    // const [data,setData] =useState(Data);
+    useEffect(() =>{
+        
+    })
+    const FindData =(CName) =>{
+      
+       
+        TrigerEvent(CName);
+    }
+    const CompanyList = Data.map((CompanyData,index)=>{
         return(
             <div>
-                <ViewMyStock CName={CompanyData.stockName} User={User}  ind={index}/>
+                <ViewMyStock CName={CompanyData.stockName} User={User}  ind={index} FindData={FindData}/>
             </div>
         );
     });
