@@ -1,45 +1,65 @@
-import {useState} from 'react'
-import Work from './components/work'
-import About from './components/aboutus'
-import Home from './components/home'
-import MyStocks from './components/mystocks'
-import Login from './components/Login'
-import Register from './components/Register'
-import NavBar from './components/Navbar'
-import { Route } from 'react-router-dom'
-import './App.css';
+import React,{createContext,useReducer} from 'react';
+import Navbar from "./components/Navbar";
+import {Route,Switch} from "react-router-dom";
+import Home from "./components/Home";
+import Aboutus from "./components/Aboutus";
+import Login from "./components/Login";
+import Registration from "./components/Registration";
+import Work from "./components/Work";
+import MyStocks from "./components/MyStocks";
+import Logout from "./components/Logout";
+import Text from "./text";
+import {reducer,initialState} from "../src/reduser/useReducer";
+import "./Styles/App.css";
 
-const App= () => {
- 
-  const [user,setUser]=useState(null);
-  const SetUsr = (usr) => {
-      setUser(usr);
-  };
-  console.log(`user in login is ${user}`)
-  return (
-    <div>
-      <NavBar />
-      <Route path="/" exact component={Home} />
-      <Route path="/MyStocks">
-        <MyStocks User={user}/>
-      </Route>
-      <Route path="/Work">
-        <Work />
-      </Route>
-      <Route path="/Home">
-        <Home />
-      </Route>
-      <Route path="/AboutUs">
-        <About />
-      </Route>
-      <Route path="/Login">
-        <Login onsubmit={SetUsr}/>
-      </Route>
-      <Route path="/Register">
-        <Register onsubmit={SetUsr}/>
-      </Route>
-    </div>
-  );
+export const users= createContext();
+const Render = () =>{
+  return(
+    <Switch>
+    <Route exact path="/">
+      <Home/>
+    </Route>
+    <Route exact path="/Home">
+      <Home/>
+    </Route>
+    <Route path="/Aboutus">
+      <Aboutus/>
+    </Route>
+    <Route path="/Login">
+      <Login/>
+    </Route>
+    <Route path="/Registration">
+      <Registration/>
+    </Route>
+    <Route path="/Work">
+      <Work/>
+    </Route>
+    <Route path="/MyStock">
+      <MyStocks/>
+    </Route>
+    <Route path="/Logout">
+      <Logout/>
+    </Route>
+    <Route path="/text">
+      <Text/>
+    </Route>
+    </Switch>
+  ) 
 }
 
-export default App;
+const App = () => {
+
+const [state, dispatch] = useReducer(reducer, initialState)
+
+  return (
+    <>
+    <users.Provider value={{state,dispatch}}>
+    <Navbar/>
+    <Render/>
+    </users.Provider>
+    
+    </>
+  )
+}
+
+export default App

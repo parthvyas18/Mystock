@@ -1,18 +1,21 @@
-import React, { useState} from 'react';
-import 'font-awesome/css/font-awesome.min.css';
-import '../styles/work.css'
+import React, { useState, createContext } from 'react';
 
-const SearchBar = ({triger}) => {
-    const [Search, setSearch] = useState("");
-    
-    const CallWork = (event) =>{
+
+const name = createContext();
+const SearchBar = ({ triger }) => {
+    // const [Search, setSearch] = useState("");
+
+    const CallWork = (event) => {
+        triger(event.target.CompanyName.value);
         event.preventDefault();
-        triger(Search);
+        
     };
     return (
         <div className="SearchBar">
-            <input className="inputSearch" type="text" placeholder="Search to view stocks ..." onChange={(event) => setSearch(event.target.value)} />
-            <button className="fa fa-search searchBtn" onClick={CallWork}></button>
+            <form onSubmit={CallWork}>
+                <input className="inputSearch" type="text" name="CompanyName" placeholder="Search to view stocks ..." />
+                <button type="submit" className="fa fa-search searchBtn" ></button>
+            </form>
         </div>
     );
 }

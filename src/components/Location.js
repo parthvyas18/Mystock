@@ -1,6 +1,6 @@
 import React from 'react'
-import map_img from "../images/map.jpg";
-import '../styles/Location.css'
+import map_img from "../Images/map.jpg";
+import "../Styles/Location.css";
 function Location() {
     return (
         <>

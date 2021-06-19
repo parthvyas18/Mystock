@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import { NavLink , useHistory} from "react-router-dom";
-import "../styles/Register.css";
-const Register = () => {
+import "../Styles/Registration.css";
+const Registration = () => {
 
     const history = useHistory();
 
@@ -121,4 +121,4 @@ const Register = () => {
         </>
     );
 }
-export default Register;
+export default Registration;

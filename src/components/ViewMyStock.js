@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react';
 
-const ViewMyStock = ({ CName, User, ind,FindData}) => {
+const ViewMyStock = ({ CName, User, ind,FindData,BPrice}) => {
    
     const DeleteStock = () => {
         const ans = window.confirm("Are you sure you want to delete?");
@@ -16,11 +16,12 @@ const ViewMyStock = ({ CName, User, ind,FindData}) => {
                  })
             }).then((res)=> res.text())
             .then(data =>console.log(data));
+            window. location. reload();
         }
     }
-    const callData= (event) => {
-        event.preventDefault();
-        FindData(CName);
+    const callData= () => {
+        
+        FindData(CName,BPrice);
     }
     return (
         <>
@@ -28,7 +29,7 @@ const ViewMyStock = ({ CName, User, ind,FindData}) => {
                 <span className="Company_Name col-md-7 col-6"><h5>{CName}</h5></span>
                 <div className="col-md-5  col-6 d-flex justify-content-around">
                     <button className="Checkibtn" onClick={callData}>Check</button>
-                    <i class="btn fa fa-trash" aria-hidden="true" onClick={DeleteStock}></i>
+                    <button class="btn fa fa-trash" aria-hidden="true" onClick={DeleteStock}></button>
                 </div>
             </div>
             {/* <div>

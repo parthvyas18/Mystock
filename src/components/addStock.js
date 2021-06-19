@@ -5,8 +5,7 @@ const AddStock = ({ User,onTriger}) => {
     const [stockPrice, setStockPrice] = useState(0)
    
     // const history = useHistory();
-    const sendData = (event) => {
-        event.preventDefault();
+    const sendData = () => {
         console.log('you are sending data')
 
         fetch(`${User}/stocksData`, {
@@ -22,6 +21,7 @@ const AddStock = ({ User,onTriger}) => {
         console.log('trigger event is called')
         onTriger();
         // history.push("/MyStocks")
+        window. location. reload()
     }
     useEffect(()=> {
 

@@ -1,10 +1,45 @@
-import React, { useState } from 'react';
-import SearchBar from './searchBar'
+import React, { useState ,useEffect,useContext} from 'react';
+import {useHistory} from "react-router-dom";
+import SearchBar from './SearchBar'
 import TopViewed from './TopViewed'
+import { users } from "../App";
 import Footer from './Footer'
 import Chart from './Chart'
-import '../styles/work.css'
+import '../Styles/Work.css'
 const Work = () => {
+
+    const history =useHistory();
+    const { state, dispatch } = useContext(users)
+
+    const checking = async (e) => {
+        try {
+            const res = await fetch('/About', {
+                method: "GET",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                credentials: "include"
+            })
+            const data = await res.json();
+            if (!res.status === 200) {
+                throw new Error(res.error);
+            }
+            dispatch({ type: "USER", payload: true })
+            // main code goes here of authentication for massage
+
+        } catch (err) {
+            dispatch({ type: "USER", payload: false })
+            history.push("/Login");
+        }
+    }
+    useEffect(() => {
+        checking();
+    }, [])
+
+
+
+
     const [DatesO, setDatesO] = useState([]);
     const [DataO, setDataO] = useState([]);
     const [DataC,setDataC]=useState([]);
@@ -44,7 +79,7 @@ const Work = () => {
     };
     return (
         <>
-            <div className='container'>
+            <div className='container work_con'>
                 <SearchBar triger={TrigerEvent} />
                 <div className='row'>
                     <div className='offset-lg-1 col-lg-10 col-12'>
