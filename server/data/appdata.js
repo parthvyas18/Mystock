@@ -37,20 +37,48 @@ const appdata=new mongoose.Schema({
         required:true
     },
     MyStocks:[stockdata],
-    // Feedback:{
-    //     CanContact:{
-    //         type: Boolean,
-    //         required:false
-    //     },
-    //     ContactMethod:{
-    //         type:String,
-    //         required:false
-    //     },
-    //     YourFeedback:{
+    date:{
+        type: Date,
+        default:Date.Now
+    },
+    Feedbacks:[
+        {
+            CCcode:{
+                type:String,
+                require:false
+            },
+            Phone: {
+                type: Number,
+                required:false
+            },
+            Email: {
+                type: String,
+                required:true
+            },
+            // Maywecontact:{
+            //     type:Boolean,
+            //     require:false
+            // },
+            // Contype:{
+            //     type:String,
+            //     require:false
+            // },
+            Meassage:{
+                type:String,
+                require:true
+            }
+        }
+    ],
+    // MyStocks:{
+    //     StockName :{
     //         type: String,
     //         required:true
+    //     },
+    //     StockPrice:{
+    //         type: Number,
+    //         required:true
     //     }
-    // }
+    // },
     Tokens: [
         {
             token:{
@@ -80,6 +108,16 @@ appdata.methods.generateAuthToken = async function () {
     }catch(err) {
         console.log(err);
     }
+}
+
+appdata.methods.addFeedback = async function(CCode, Phone, Email,  Meassage ){
+    try{
+        this.Feedbacks=this.Feedbacks.concat({CCode, Phone, Email,  Meassage });
+        await this.save();
+        return this.Feedbacks;
+    }catch(err){
+        console.log(err);
+    }    
 }
 
 const Data = mongoose.model('APPDATA',appdata);
