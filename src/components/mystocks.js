@@ -3,23 +3,19 @@ import AddStock from './AddStock'
 import Footer from "./Footer";
 import { users } from "../App";
 import { useHistory } from "react-router-dom";
-import Chart from "./Chart";
 import DisplayStockList from './DisplayStockList'
 import NewChart from './newChart'
 import '../Styles/MyStocks.css';
-
-
-
-const MyStocks = ({ User }) => {
-
-
+import anime from 'animejs';
+const MyStocks = () => {
     const history = useHistory();
     const { state, dispatch } = useContext(users)
     const [usrema, setUsrema] = useState();
     const [usrstdata, setUsrStData] = useState([]);
+    const animationRef = React.useRef(null);
     const checking = async (e) => {
         try {
-            const res = await fetch('/About', {
+            const res = await fetch('/MyStocks', {
                 method: "GET",
                 headers: {
                     Accept: "application/json",
@@ -43,6 +39,28 @@ const MyStocks = ({ User }) => {
     }
     useEffect(() => {
         checking();
+        animationRef.current = anime.timeline({ loop: 1})
+        .add({
+            targets: '.PageTitle .letters',
+            scale: [0, 1],
+            duration: 1000,
+            elasticity: 600,
+            delay: (el, i) => 45 * (i+1)
+          })
+        .add({
+          targets: '.stocksContent .word',
+          scale: [2, 1],
+          opacity: [0, 1],
+          easing: "easeOutCirc",
+          duration: 1500,
+          delay: (el, i) => 800 * i
+        }).add({
+          targets: 'stocksContent',
+          opacity: 1,
+          duration: 1500,
+          easing: "easeOutExpo",
+          delay: 1000
+        });
     }, [])
     const [Display, setDisplay] = useState('none');
     const [user, setUser] = useState(usrema);
@@ -106,31 +124,21 @@ const MyStocks = ({ User }) => {
             setDisplay('none');
     }
     // useEffect(()=>{
-    //     console.log("i am here to rerender the page");
-    // },[usrstdata])
-    // useEffect(() => {
-    //     const Search = async () => {
-    //         setUser(usrema);
-    //         const res = await fetch(`${usrema}/stocksList`);
-    //         const data = await res.json();
-    //         setUsrStData(data);
-    //         console.log(data);
-    //     }   
-    //     //Search();
-    // }, [usrstdata]);
+        
+    // }, []);
 
     return (
         <>
             <div className="container">
                 <div className="row">
-                    <span className="col-12"><h1 className='PageTitle'>My Stocks</h1></span>
+                    <span className="col-12"><h1 className='PageTitle'><span className="textWrapper"><span className="letters">My Stocks</span></span></h1></span>
                     <hr></hr>
                 </div>
                 <div className="row stocksContent d-flex justify-content-around align-items-center">
-                    <div className=" col-lg-3  col-12   d-flex justify-content-between align-items-center addStocks">
+                    <div className=" col-lg-3  col-12   d-flex justify-content-between align-items-center addStocks word">
                         <AddStock User={usrema} onTriger={onTriger} />
                     </div>
-                    <div className=" col-lg-5 col-12 stockList">
+                    <div className=" col-lg-5 col-12 stockList word" >
                         <DisplayStockList User={usrema} Data={usrstdata} TrigerEvent={TrigerEvent} />
                     </div>
                 </div>

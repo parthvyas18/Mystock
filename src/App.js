@@ -8,6 +8,7 @@ import Registration from "./components/Registration";
 import Work from "./components/Work";
 import MyStocks from "./components/MyStocks";
 import Logout from "./components/Logout";
+import Profile from "./components/Profile"
 import Text from "./text";
 import {reducer,initialState} from "../src/reduser/useReducer";
 import "./Styles/App.css";
@@ -36,6 +37,9 @@ const Render = () =>{
     </Route>
     <Route path="/MyStock">
       <MyStocks/>
+    </Route>
+    <Route path="/Profile">
+      <Profile/>
     </Route>
     <Route path="/Logout">
       <Logout/>
