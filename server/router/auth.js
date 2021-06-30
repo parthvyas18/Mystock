@@ -149,6 +149,7 @@ router.post("/Feedback", check,async (req, res) => {
 })
 router.get("/Logout", (req, res) => {
     res.clearCookie('jwtoken', { path: '/' });
+    res.clearCookie('G_AUTHUSER_H', { path: '/' });
     res.status(200).send(req.rootdata);
 })
 router.get("/Work", check, (req, res) => {
@@ -163,7 +164,6 @@ router.get("/Profile", check, (req, res) => {
 router.get('/stocksData', () => {
     console.log('You are in stockdata')
 });
-
 router.post("/:User/stocksData", async (req, res) => {
     let Email = req.params.User;
     //console.log(Email);
@@ -185,13 +185,21 @@ router.post("/:User/stocksData", async (req, res) => {
         console.log(err);
     }
 });
+router.put('/:User/updataData',async (req,res) =>{
+    const Email=req.params.User;
+    const {UsrEmail,UsrName,UsrNum} = req.body;
+    let user= await Data.findOne({Email:Email});
+    user.Email=UsrEmail;
+    user.UserName=UsrName;
+    user.Phone=UsrNum;
+    await user.save();
+});
 router.post('/:User/deleteStock/:ind',async (req,res) => {
     const Email=req.params.User;
     const ind=req.params.ind;
     let user= await Data.findOne({Email:Email});
     console.log(user);
     user.MyStocks.splice(ind,1);
-
     await user.save();
 })
 router.get('/:User/stocksList',async (req,res) => {
