@@ -5,7 +5,7 @@ import "../Styles/Profile.css"
 const Profile = () => {
     const { state, dispatch } = useContext(users)
     const history = useHistory();
-    const [Email,setEmail]=useState("Email")
+    const [Email, setEmail] = useState("Email")
     const [Name, setName] = useState("Name")
     const [UsrName, setUsrName] = useState("UserName");
     const [UsrEmail, setUsrEmail] = useState("Email");
@@ -65,6 +65,12 @@ const Profile = () => {
                     <div className='ex col-12 '>
                         <div className='row'>
                             <div className='col-lg-2   col-md-5 col-9 ImageP'>
+                                <form>
+                                    <div class="form-group">
+                                        {/* <label for="FormControlFile"></label> */}
+                                        <input type="file" class="form-control-file" id="FormControlFile" />
+                                    </div>
+                                </form>
                             </div>
                             <div className='col-lg-10 col-12 d-flex flex-column Header'>
                                 <div className='row'>
